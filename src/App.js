@@ -79,7 +79,7 @@ function App() {
         type="submit"
         onClick={handleShowAddPlayer}
       >
-        I Love Trivia!
+        I Love Mysteries!
       </Button>
       <Button 
         className="btn-lg"
@@ -95,7 +95,7 @@ function App() {
         type="submit"
         onClick={handleShowNoTrivia}
       >
-        I Hate Trivia! 
+        I Hate Mysteries! 
     </Button>
     </div>
     ) : null}
@@ -114,7 +114,8 @@ function App() {
                   color: "#319b54", 
                   fontSize: "20px",
                   width: "100%",
-                  fontWeight: "bold"
+                  fontWeight: "bold",
+                  fontFamily: "Courier New"
                 }} 
                 onClick={handleCloseNoTrivia}>Close
               </Button>
@@ -123,11 +124,11 @@ function App() {
 
     {showAddPlayer ? (
       <div>
-        <Card style={{backgroundColor: "#cc4400"}}>
-          <div className="card-header" style={{backgroundColor: "#b33b00"}}>
+        <Card style={{backgroundColor: "#22031F"}}>
+          <div className="card-header" style={{backgroundColor: "#1C2321"}}>
           Add New Player!
           </div>
-          <div className="card-body" style={{backgroundColor: "#ee4e00"}}>
+          <div className="card-body" style={{backgroundColor: "#22031F"}}>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <h4>Enter Your Username:</h4>
@@ -177,7 +178,7 @@ function App() {
             type="submit"
             onClick={handleShowQuiz}>Take the Quiz!
           </Button>
-          <Modal style={{color: "#cc4400"}} show={showQuiz} onHide={handleShowQuiz}>
+          <Modal style={{color: "#22031F"}} show={showQuiz} onHide={handleShowQuiz}>
           <ModalBody>
           <TriviaRound/>
           </ModalBody>
@@ -190,7 +191,8 @@ function App() {
                 color: "#319b54",
                 fontSize: "20px", 
                 fontWeight: "bold",
-                width: "100%"
+                width: "100%",
+                fontFamily: "Courier New"
               }} 
               onClick={handleCloseQuiz}>Close</Button>
             </ModalFooter>
@@ -222,7 +224,8 @@ function App() {
                   backgroundColor: "#0c2715", 
                   color: "#319b54",
                   fontSize: "20px", 
-                  width: "100%"
+                  width: "100%",
+                  fontFamily: "Courier New"
                 }} 
                 onClick={handleCloseAbout}>Close
               </Button>

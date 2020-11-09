@@ -3,13 +3,16 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 
 export default function About() {
     return (
-        <Jumbotron style={{backgroundColor: "#cc4400", padding: "2%",
+        <Jumbotron style={{backgroundColor: "#22031F", padding: "2%",
         margin: "0%"}}>
-            <h1 style={{backgroundColor: "#cc4400", padding: "0%",
-            margin: "0%"}} className="jumbotron">Hi there!</h1>
-            <h2 style={{textAlign: "center"}}>Welcome to the Pumpkin Spice Pop Quiz!*</h2>
-            <h5>This trivia quiz app was created in response to a technical challenge. Challenge specs included twenty-one trivia questions in an array-of-hashes format. The challenge was language-agnostic and open-ended, so I decided to build a React app with components for the quiz elements and hooks to manage scoring. It was Halloween when I finished the project, hence the pumpkin spice theme. You can see the repo <a style={{color: "#52c779"}} href="https://github.com/Jess-White/three-roads-app">here.</a> Enjoy!</h5>
-            <h5>*not actually pumpkin spicy</h5>
+            <h3 style={{backgroundColor: "#22031F", padding: "0%",
+            margin: "0%"}} className="jumbotron">About Whodunnit</h3>
+            <h5>The original version of this trivia quiz, which you can see <a style={{color: "#52c779"}} href="https://pumpkin-spicy.netlify.app/">here</a>, was created in response to a technical challenge from Tandem.</h5> 
+            <h5>The original challenge specs included twenty-one trivia questions in an array-of-hashes format. I wanted to build a personalized version, so I decided to create this murder-mystery-themed quiz.</h5>
+            <h3>Questions are heavily slanted towards golden-age mysteries (your Marples, your Poirots) because they're my favorites. 
+            </h3>
+            <h5>You can see the repo for this project <a style={{color: "#52c779"}} href="https://github.com/Jess-White/whodunnit">here.</a> Enjoy!</h5>
+            
             
         </Jumbotron>
     )

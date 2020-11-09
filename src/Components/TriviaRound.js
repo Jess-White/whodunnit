@@ -74,16 +74,16 @@ export default function TriviaRound() {
 
     return (
       <div>
-      <Card style={{backgroundColor: "#cc4400"}}>
+      <Card style={{backgroundColor: "#22031F"}}>
       <div>
         <div className="meter">
-          <progress style={{backgroundColor: "#cc4400", width: "100%"}} max="10" value={index}></progress>
+          <progress style={{backgroundColor: "#22031F", width: "100%"}} max="10" value={index}></progress>
         </div>
         {isIncorrect && <IncorrectAlert></IncorrectAlert>}
         {isIncorrect ? (
           <div>
-            <h1 style={{textAlign: "center"}}>The correct answer is</h1>
-            <h1 style={{color: "#00ff45", fontWeight: "bold", textAlign: "center"}}>{answerKey}</h1>
+            <h2 style={{textAlign: "center"}}>The true culprit was</h2>
+            <h2 style={{color: "#9affcf", fontWeight: "bold", textAlign: "center"}}>{answerKey}</h2>
           </div>
         ) : null }
         {isCorrect && <CorrectAlert></CorrectAlert>}

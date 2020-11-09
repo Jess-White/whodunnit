@@ -7,13 +7,13 @@ export default function Question({question, handleAnswerSelected, handleGetQuest
       <div>
       <div>
         <div>
-          <Card style={{backgroundColor: "#cc4400", padding: "2%"}}>
-          <Card.Title style={{backgroundColor: "#b33b00", padding: "1%"}}>
-          <h2>In {question.title}, whodunnit?</h2></Card.Title>
+          <Card style={{backgroundColor: "#22031F", padding: "2%"}}>
+          <Card.Title style={{backgroundColor: "#1C2321", padding: "1%"}}>
+          <h2>In <span style={{fontStyle: "italic"}}>{question.title}</span>, Whodunnit?</h2></Card.Title>
           <ListGroup variant="flush">
 
           {question.answers.map(answer =>
-          <ListGroup.Item style={{backgroundColor: "#802a00", cursor: "pointer"}} 
+          <ListGroup.Item style={{backgroundColor: "#2f1e2d", cursor: "pointer"}} 
               onClick={() => {
                 if (answer === question.correct) {
                   handleAnswerSelected(true)

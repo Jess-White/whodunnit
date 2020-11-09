@@ -3,8 +3,11 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 
 export default function Header() {
     return (
-        <Jumbotron style={{backgroundColor: "#cc4400"}}>
-            <h1 style={{backgroundColor: "#cc4400"}} className="jumbotron" >Whodunnit?</h1><h1>A Killer Quiz App</h1>
+        <Jumbotron style={{backgroundColor: "#22031F", textAlign: "left"}}>
+            <h1>
+            <span style={{backgroundColor: "#22031F", fontFamily: "Times New Roman"}}className="jumbotron">Whodunnit?</span>
+            A Killer Quiz App
+            </h1>
         </Jumbotron>
     )
 }

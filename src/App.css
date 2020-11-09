@@ -1,6 +1,9 @@
 .App {
+  font-family: "Times New Roman", Times, monospace;
+  font-weight: bolder;
+  font-style: italic;
   text-align: center;
-  background-color: #802a00;
+  background-color: #22031F;
   padding-bottom: 12%;
 }
 
@@ -16,7 +19,7 @@
 }
 
 .App-header {
-  background-color: #cc4400;
+  background-color: #22031F;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -45,18 +48,24 @@
 }
 
 .card-header {
-  color: #ffc450;
+  color: #E0E0CE;
   font-size: 50px;
   font-weight: bold;
 }
 
 h1, h2, h3, h4, h5, p {
-  color: #ffc450;
+  color: #E0E0CE;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+}
+
+.Button {
+  font-family: "Times New Roman", Times, serif;
 }
 
 .jumbotron {
-  color: #ffc450;
-  font-size: 80px;
+  color: #E0E0CE;
+  font-size: 130px;
   font-weight: bold;
 }
 
