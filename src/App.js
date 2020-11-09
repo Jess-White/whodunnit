@@ -115,7 +115,7 @@ function App() {
                   fontSize: "20px",
                   width: "100%",
                   fontWeight: "bold",
-                  fontFamily: "Courier New"
+                  fontFamily: "Times New Roman"
                 }} 
                 onClick={handleCloseNoTrivia}>Close
               </Button>
@@ -192,7 +192,7 @@ function App() {
                 fontSize: "20px", 
                 fontWeight: "bold",
                 width: "100%",
-                fontFamily: "Courier New"
+                fontFamily: "Times New Roman"
               }} 
               onClick={handleCloseQuiz}>Close</Button>
             </ModalFooter>
@@ -225,7 +225,7 @@ function App() {
                   color: "#319b54",
                   fontSize: "20px", 
                   width: "100%",
-                  fontFamily: "Courier New"
+                  fontFamily: "Times New Roman"
                 }} 
                 onClick={handleCloseAbout}>Close
               </Button>
