@@ -1,4 +1,7 @@
-import { MYSTERYQUESTIONS } from './MysteryData';
+import { MYSTERYQUESTIONS, ANSWEROPTIONS } from './MysteryData';
+import { getQuestionData } from './QuestionAPI';
+
+//Original quiz question formatting:
 
 // make a function to create a new array for each quiz out of the constant QUESTIONDATA
 
@@ -39,33 +42,23 @@ export const pullTriviaRound = () => {
   return roundArray
 }
 
-// Write a function to set rounds of subsequent questions
+export const pullTwentyQuestions = () => {
+  let twentyQuestionsArray = []
+  let pullArray = randomizeQuestions() 
+  let counter = 0
+  while (counter < 20) {
+    twentyQuestionsArray.push(pullArray[counter])
+    pullArray.shift()
+    counter += 1
+  }
+  return twentyQuestionsArray
+}
 
-//Create a function to play the full quiz all at once
-
-//Create a function to tabulate scores
-
-// // make a function to format the questions in the array created in randomizeQuestions so that the correct and incorrect answers are shuffled into a single array
-
-//not necessary in this version - array was reformatted
-
-// export const reformatQuestions = () => {
-//   let reformattedArray = getTriviaRound().map((question) => {
-//     question.answers = []
-//     question.answers.push(question.correct)
-//       question.incorrect.map((incorrectOption) => {
-//         return  (question.answers.push(incorrectOption))
-//       })
-//     for (let i = question.answers.length - 1; i > 0; i--) {
-//       const j = Math.floor(Math.random() * i)
-//       const temp = question.answers[i]
-//       question.answers[i] = question.answers[j]
-//       question.answers[j] = temp
-//     }
-//     return question
-//   })
-//   return reformattedArray
-// }
+export const pullMultipleRounds = () => {
+  let allRoundsArray = []
+  let singleRoundArray = []
+  let pullArray = randomizeQuestions
+}
 
 // (NOT IN USE) make function to select one question from the question array to display
 //and remove it from the question array (NOT IN USE)
@@ -78,3 +71,72 @@ export const getQuestion = () => {
     return randomQuestion
 }
 
+//User generated functions:
+
+// Create a function to reformat the user-generated questions from the backend so that they look like the original questions: 
+
+// {
+//   title: "A Pocket Full of Rye",
+//   correct: "The Gentleman Caller",
+//   answers: ["The Chambermaid", "The Gentleman Caller", "The Housekeeper", "The Matriarch"]
+// }
+
+export const createAnswerArray = () => {
+  let answerDataArray = [];
+  ANSWEROPTIONS.forEach((answer) => {
+    answerDataArray.push(answer);
+  })
+  return answerDataArray;
+}
+
+//randomize the answer array
+
+export const randomizeAnswers = () => {
+  let randomizedAnswers = createAnswerArray();
+  for (let i = randomizedAnswers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i)
+    const temp = randomizedAnswers[i]
+    randomizedAnswers[i] = randomizedAnswers[j]
+    randomizedAnswers[j] = temp
+  }
+  return randomizedAnswers
+}
+
+//make a function to reformat User Questions
+
+export const reformatUserQuestions = () => {
+  let randomizedAnswerArray = randomizeAnswers();
+  let reformattedUserArray = getQuestionData().map((question) => {
+    question.answers = []
+    question.answers.push(question.correct)
+    let counter = 0
+    while (counter < 4) {
+      question.answers.push(randomizedAnswerArray[counter])
+      counter += 1
+    }
+    for (let i = question.answers.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * i)
+      const temp = question.answers[i]
+      question.answers[i] = question.answers[j]
+      question.answers[j] = temp
+    }
+    return question
+  })
+  return reformattedUserArray
+}
+
+// Create a function to mix them in with the incorrect answers array, and add it to the available questions
+
+export const combineQuestionArrays = () => {
+  let userQuestionArray = reformatUserQuestions();
+  let originalQuestionArray = createQuizArray();
+  let concatQuestionArray = originalQuestionArray.concat(userQuestionArray)
+  let randomizedCombinedArray = concatQuestionArray
+  for (let i = randomizedCombinedArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i)
+    const temp = randomizedCombinedArray[i]
+    randomizedCombinedArray[i] = randomizedCombinedArray[j]
+    randomizedCombinedArray[j] = temp
+  }
+  return randomizedCombinedArray
+}
