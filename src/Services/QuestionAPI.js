@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export const addNewQuestion = ({title, correct}) => {
   return axios
-    .post('/api/questions', {title, correct})
+    .post('/api/ug_questions', {title, correct})
     .then(response => response.data)
 }
 
@@ -14,6 +14,6 @@ export const addNewQuestion = ({title, correct}) => {
 //Create a function to pull questions from the database
 
 export const getQuestionData = () => {
-  return axios('/api/votes')
+  return axios('/api/ug_questions')
     .then(response => response.data)
 }

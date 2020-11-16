@@ -9,6 +9,7 @@ import Footer from './Components/Footer';
 import FemmeFatale from './Components/FemmeFatale';
 import TriviaRound from './Components/TriviaRound';
 import About from './Components/About';
+import AddNewQuestion from './Components/AddNewQuestion';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -21,6 +22,10 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(false);
   const [showAddPlayer, setShowAddPlayer] = useState(false);
   const [showHeaderButtons, setShowHeaderButtons] = useState(true);
+
+  // const question = useState({title: '', correct: ''})
+  const [error, setError] = useState("")
+  // const [questions, setQuestions] = useState([])
 
 
   const handleSubmit = (event) => {
@@ -234,6 +239,7 @@ function App() {
         </div>
       ) : null}
       <Footer />
+      <AddNewQuestion />
     </div>
   );
 }

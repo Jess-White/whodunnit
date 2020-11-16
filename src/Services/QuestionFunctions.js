@@ -13,6 +13,16 @@ export const createQuizArray = () => {
   return questionDataArray;
 }
 
+export const createUserGeneratedQuestionArray = () => {
+  let userGeneratedQuestionArray = [];
+  getQuestionData.forEach((question) => {
+    userGeneratedQuestionArray.push(question);
+  })
+  return userGeneratedQuestionArray;
+}
+
+
+
 // make a function to randomize the questions in the array from createQuizArray
 
 export const randomizeQuestions = () => {
@@ -28,8 +38,6 @@ export const randomizeQuestions = () => {
 
 // make a function to create an array that holds a round of ten trivia questions from the array created in randomizeQuestions
 
-//was getTriviaRound
-
 export const pullTriviaRound = () => {
   let roundArray = []
   let pullArray = randomizeQuestions()
@@ -40,35 +48,6 @@ export const pullTriviaRound = () => {
     counter += 1
   }
   return roundArray
-}
-
-export const pullTwentyQuestions = () => {
-  let twentyQuestionsArray = []
-  let pullArray = randomizeQuestions() 
-  let counter = 0
-  while (counter < 20) {
-    twentyQuestionsArray.push(pullArray[counter])
-    pullArray.shift()
-    counter += 1
-  }
-  return twentyQuestionsArray
-}
-
-export const pullMultipleRounds = () => {
-  let allRoundsArray = []
-  let singleRoundArray = []
-  let pullArray = randomizeQuestions
-}
-
-// (NOT IN USE) make function to select one question from the question array to display
-//and remove it from the question array (NOT IN USE)
-
-export const getQuestion = () => {
-    let thisPlayArray = createQuizArray()
-    let randomNumber = Math.floor(Math.random() * thisPlayArray.length);
-    let randomQuestion = (thisPlayArray[randomNumber]);
-    thisPlayArray.splice(randomNumber)
-    return randomQuestion
 }
 
 //User generated functions:
@@ -106,7 +85,7 @@ export const randomizeAnswers = () => {
 
 export const reformatUserQuestions = () => {
   let randomizedAnswerArray = randomizeAnswers();
-  let reformattedUserArray = getQuestionData().map((question) => {
+  let reformattedUserArray = createUserGeneratedQuestionArray().map((question) => {
     question.answers = []
     question.answers.push(question.correct)
     let counter = 0
@@ -139,4 +118,33 @@ export const combineQuestionArrays = () => {
     randomizedCombinedArray[j] = temp
   }
   return randomizedCombinedArray
+}
+
+// (NOT IN USE) make function to select one question from the question array to display
+//and remove it from the question array (NOT IN USE)
+
+export const getQuestion = () => {
+    let thisPlayArray = createQuizArray()
+    let randomNumber = Math.floor(Math.random() * thisPlayArray.length);
+    let randomQuestion = (thisPlayArray[randomNumber]);
+    thisPlayArray.splice(randomNumber)
+    return randomQuestion
+}
+
+export const pullTwentyQuestions = () => {
+  let twentyQuestionsArray = []
+  let pullArray = randomizeQuestions() 
+  let counter = 0
+  while (counter < 20) {
+    twentyQuestionsArray.push(pullArray[counter])
+    pullArray.shift()
+    counter += 1
+  }
+  return twentyQuestionsArray
+}
+
+export const pullMultipleRounds = () => {
+  let allRoundsArray = []
+  let singleRoundArray = []
+  let pullArray = randomizeQuestions
 }

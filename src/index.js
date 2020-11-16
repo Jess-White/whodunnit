@@ -4,6 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import axios from 'axios';
+
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "development"
+ ? "http://localhost:3000" : "/";
+
 
 ReactDOM.render(
   <React.StrictMode>
