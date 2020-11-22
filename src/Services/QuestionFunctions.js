@@ -36,20 +36,6 @@ export const randomizeQuestions = () => {
   return randomizedArray
 }
 
-// make a function to create an array that holds a round of ten trivia questions from the array created in randomizeQuestions
-
-export const pullTriviaRound = () => {
-  let roundArray = []
-  let pullArray = randomizeQuestions()
-  let counter = 0
-  while (counter < 10) {
-    roundArray.push(pullArray[counter])
-    pullArray.shift()
-    counter += 1
-  }
-  return roundArray
-}
-
 //User generated functions:
 
 // Create a function to reformat the user-generated questions from the backend so that they look like the original questions: 

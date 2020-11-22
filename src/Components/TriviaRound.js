@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
-import { pullTriviaRound, randomizeQuestions } from '../Services/QuestionFunctions.js';
+import { randomizeQuestions } from '../Services/QuestionFunctions.js';
 import Question from './Question.js'
 import AllDoneAlert from './AllDoneAlert.js'
 import CorrectAlert from './CorrectAlert.js'
@@ -10,8 +10,8 @@ import Button from 'react-bootstrap/Button';
 export default function TriviaRound() {
   const [scoreCorrect, setScoreCorrect] = useState(0)
   const [scoreIncorrect, setScoreIncorrect] = useState(0)
-  const [getQuestionArray, setQuestionArray] = useState(randomizeQuestions())
-  const [getTriviaRound, setTriviaRound] = useState(pullTriviaRound())
+  // const [getQuestionArray, setQuestionArray] = useState(randomizeQuestions())
+  const [getTriviaRound, setTriviaRound] = useState('')
   const [currentQuestion, setCurrentQuestion] = useState(getTriviaRound[0])
   const [index, setIndex] = useState(1)
   const [isFinished, setIsFinished] = useState(false)
@@ -23,22 +23,9 @@ export default function TriviaRound() {
 
     // this.checkIndex = this.checkIndex.bind(this);
 
-    // make a function to randomize the questions in the array from createQuizArray
-
-    function randomizeQuestions() {
-      let randomizedArray = createQuizArray();
-      for (let i = randomizedArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * i)
-        const temp = randomizedArray[i]
-        randomizedArray[i] = randomizedArray[j]
-        randomizedArray[j] = temp
-      }
-      return randomizedArray
-    }
-
     // make a function to create an array that holds a round of ten trivia questions from the array created in randomizeQuestions
 
-    function pullTriviaRound() {
+    const TriviaRoundFunction = () => {
       let roundArray = []
       let pullArray = randomizeQuestions()
       let counter = 0
@@ -47,11 +34,38 @@ export default function TriviaRound() {
         pullArray.shift()
         counter += 1
       }
-      return roundArray
+      setTriviaRound(roundArray)
     }
 
+    // // make a function to randomize the questions in the array from createQuizArray
+
+    // function randomizeQuestions() {
+    //   let randomizedArray = createQuizArray();
+    //   for (let i = randomizedArray.length - 1; i > 0; i--) {
+    //     const j = Math.floor(Math.random() * i)
+    //     const temp = randomizedArray[i]
+    //     randomizedArray[i] = randomizedArray[j]
+    //     randomizedArray[j] = temp
+    //   }
+    //   return randomizedArray
+    // }
+
+    // // make a function to create an array that holds a round of ten trivia questions from the array created in randomizeQuestions
+
+    // function pullTriviaRound() {
+    //   let roundArray = []
+    //   let pullArray = randomizeQuestions()
+    //   let counter = 0
+    //   while (counter < 10) {
+    //     roundArray.push(pullArray[counter])
+    //     pullArray.shift()
+    //     counter += 1
+    //   }
+    //   return roundArray
+    // }
+
     function resetQuiz() {
-      setTriviaRound(pullTriviaRound())
+      setTriviaRound(getTriviaRound())
       setCurrentQuestion(getTriviaRound[0])
       setIndex(0)
       setIsFinished(false)
