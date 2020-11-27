@@ -22,24 +22,36 @@ export default function TriviaRound() {
   const [answerKey, setAnswerKey] = useState('')
 
   function sliceArray() {
-    setQuestionArray(questionArray)
-    setTriviaRound(getTriviaRound)
-    let slicedArray = questionArray.map((question) => {
-      getTriviaRound.map((roundQuestion) => {
-        if (roundQuestion.title === (question.title)) {
-          questionArray.slice(question)
+    if (questionArray.length >= 10) {
+      let slicedArray = getTriviaRound.map((roundQuestion) => {
+        let testTitle = roundQuestion.title
+        return questionArray.filter((question) => {
+          if (question.title !== testTitle) {
+            return question
         }
-      })
-      return questionArray
+        })
     })
-    setQuestionArray(slicedArray)
+      setQuestionArray(slicedArray)
+    } else {
+      setQuestionArray(randomizeQuestions())
+    }
+    setTriviaRound(getTriviaRound)
     console.log(questionArray.length)
   }
 
-  var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-    var filtered = array.filter(function(value, index, arr){ 
-        return value > 5;
-    });
+  // array.filter(item => { if (item.id ==id) return item.name} )
+
+//   const items = ['a', 'b', 'c', 'd', 'e', 'f']
+// const valueToRemove = 'c'
+// const filteredItems = items.filter(function(item) {
+//   return item !== valueToRemove
+// })
+// ["a", "b", "d", "e", "f"]
+
+  // var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  //   var filtered = array.filter(function(value, index, arr){ 
+  //       return value > 5;
+  //   });
     //filtered => [6, 7, 8, 9]
     //array => [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
