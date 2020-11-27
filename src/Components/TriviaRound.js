@@ -23,44 +23,39 @@ export default function TriviaRound() {
 
   function sliceArray() {
     if (questionArray.length >= 10) {
-      let slicedArray = getTriviaRound.map((roundQuestion) => {
-        let testTitle = roundQuestion.title
-        return questionArray.filter((question) => {
-          if (question.title !== testTitle) {
-            return question
-        }
+      let slicedArray = 
+        questionArray.filter((question) => {
+        getTriviaRound.map((roundQuestion) => {
+          return question.title !== roundQuestion.title
         })
-    })
-      setQuestionArray(slicedArray)
+      })
+    setQuestionArray(slicedArray)
     } else {
       setQuestionArray(randomizeQuestions())
     }
-    setTriviaRound(getTriviaRound)
-    console.log(questionArray.length)
   }
+
+// var newArray = homes.filter(function (el) {
+//   return el.price <= 1000 &&
+//          el.sqft >= 500 &&
+//          el.num_of_beds >=2 &&
+//          el.num_of_baths >= 2.5;
+// });
+
+// let slicedArray = getTriviaRound.map((roundQuestion) => {
+//         let testTitle = roundQuestion.title
+//         return questionArray.filter((question) => {
+//           if (question.title !== testTitle) {
+//             return question
+//         }
+//         })
+//     })
 
   // array.filter(item => { if (item.id ==id) return item.name} )
 
-//   const items = ['a', 'b', 'c', 'd', 'e', 'f']
-// const valueToRemove = 'c'
-// const filteredItems = items.filter(function(item) {
-//   return item !== valueToRemove
-// })
-// ["a", "b", "d", "e", "f"]
-
-  // var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-  //   var filtered = array.filter(function(value, index, arr){ 
-  //       return value > 5;
-  //   });
-    //filtered => [6, 7, 8, 9]
-    //array => [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-
-
-    // this.checkIndex = this.checkIndex.bind(this);
-
     function resetQuiz() {
-      setQuestionArray(sliceArray())
       setTriviaRound(pullTriviaRound())
+      setQuestionArray(sliceArray())
       setCurrentQuestion(getTriviaRound[0])
       setIndex(0)
       setIsFinished(false)

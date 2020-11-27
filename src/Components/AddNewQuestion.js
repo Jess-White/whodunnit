@@ -61,7 +61,7 @@ export default class QuestionForm extends React.Component {
 
   render() {
     return (
-        <Card style={{backgroundColor: "#000058"}}>
+        <Card style={{backgroundColor: "#22031F"}}>
           <div className="card-header">
           Add Your Own Whodunnit? Question!
           </div>
@@ -78,8 +78,8 @@ export default class QuestionForm extends React.Component {
                   required
                   style={{
                     padding: "1%",
-                    backgroundColor: "#ffff1b",
-                    color: "#000080", 
+                    backgroundColor: "#0c2715",
+                    color: "#319b54", 
                     fontSize: "20px", 
                     fontWeight: "bold"
                   }}
@@ -96,8 +96,8 @@ export default class QuestionForm extends React.Component {
                   required
                   style={{
                     padding: "1%",
-                    backgroundColor: "#ffff1b",
-                    color: "#000080", 
+                    backgroundColor: "#0c2715",
+                    color: "#319b54", 
                     fontSize: "20px", 
                     fontWeight: "bold"
                   }}
@@ -108,8 +108,8 @@ export default class QuestionForm extends React.Component {
                 <Button 
                   className="btn-lg" 
                   style={{
-                    backgroundColor: "#ffff1b", 
-                    color: "#000080", 
+                    backgroundColor: "#319b54", 
+                    color: "#0c2715", 
                     fontSize: "20px", 
                     fontWeight: "bold",
                     marginTop: "2%"
