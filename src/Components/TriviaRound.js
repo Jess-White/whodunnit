@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
-import { pullTriviaRound, randomizeQuestions } from '../Services/QuestionFunctions.js';
+import { pullTriviaRound, randomizeQuestions, createMultipleRounds } from '../Services/QuestionFunctions.js';
 import Question from './Question.js'
 import AllDoneAlert from './AllDoneAlert.js'
 import CorrectAlert from './CorrectAlert.js'
@@ -11,15 +11,22 @@ export default function TriviaRound() {
   const [scoreCorrect, setScoreCorrect] = useState(0)
   const [scoreIncorrect, setScoreIncorrect] = useState(0)
   const [questionArray, setQuestionArray] = useState(randomizeQuestions())
-  const [getTriviaRound, setTriviaRound] = useState(pullTriviaRound())
+  const [multipleRound, setmultipleRound] = useState(createMultipleRounds())
+  const [getTriviaRound, setTriviaRound] = useState(multipleRound[0])
+  // const [getTriviaRound, setTriviaRound] = useState(pullTriviaRound())
   const [currentQuestion, setCurrentQuestion] = useState(getTriviaRound[0])
   const [index, setIndex] = useState(1)
+  const [roundCounter, setRoundCounter] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const [finalScore, setFinalScore] = useState(0)
   const [isCorrect, setCorrect] = useState(false)
   const [isIncorrect, setIncorrect] = useState(false)
   const [showFinalScore, setShowFinalScore] = useState(false)
   const [answerKey, setAnswerKey] = useState('')
+
+  function setRounds() {
+    
+  }
 
   function sliceArray() {
     if (questionArray.length >= 10) {
@@ -34,6 +41,8 @@ export default function TriviaRound() {
       setQuestionArray(randomizeQuestions())
     }
   }
+
+
 
 // var newArray = homes.filter(function (el) {
 //   return el.price <= 1000 &&
