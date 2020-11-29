@@ -24,10 +24,6 @@ export default function TriviaRound() {
   const [showFinalScore, setShowFinalScore] = useState(false)
   const [answerKey, setAnswerKey] = useState('')
 
-  function setRounds() {
-    
-  }
-
   function sliceArray() {
     if (questionArray.length >= 10) {
       let slicedArray = 
@@ -41,26 +37,6 @@ export default function TriviaRound() {
       setQuestionArray(randomizeQuestions())
     }
   }
-
-
-
-// var newArray = homes.filter(function (el) {
-//   return el.price <= 1000 &&
-//          el.sqft >= 500 &&
-//          el.num_of_beds >=2 &&
-//          el.num_of_baths >= 2.5;
-// });
-
-// let slicedArray = getTriviaRound.map((roundQuestion) => {
-//         let testTitle = roundQuestion.title
-//         return questionArray.filter((question) => {
-//           if (question.title !== testTitle) {
-//             return question
-//         }
-//         })
-//     })
-
-  // array.filter(item => { if (item.id ==id) return item.name} )
 
     function resetQuiz() {
       setTriviaRound(pullTriviaRound())
