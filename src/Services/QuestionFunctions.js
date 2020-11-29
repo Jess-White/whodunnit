@@ -13,6 +13,8 @@ export const createQuizArray = () => {
   return questionDataArray;
 }
 
+//make a function to create an array of user-generated questions
+
 export const createUserGeneratedQuestionArray = () => {
   let userGeneratedQuestionArray = [];
   getQuestionData.forEach((question) => {
@@ -20,8 +22,6 @@ export const createUserGeneratedQuestionArray = () => {
   })
   return userGeneratedQuestionArray;
 }
-
-
 
 // make a function to randomize the questions in the array from createQuizArray
 
