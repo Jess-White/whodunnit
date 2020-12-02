@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
-import { pullTriviaRound, randomizeQuestions } from '../Services/QuestionFunctions.js';
+import { createMultipleRounds } from '../Services/QuestionFunctions.js';
 import Question from './Question.js'
 import AllDoneAlert from './AllDoneAlert.js'
 import CorrectAlert from './CorrectAlert.js'
@@ -10,10 +10,12 @@ import Button from 'react-bootstrap/Button';
 export default function TriviaRound() {
   const [scoreCorrect, setScoreCorrect] = useState(0)
   const [scoreIncorrect, setScoreIncorrect] = useState(0)
-  const [questionArray, setQuestionArray] = useState(randomizeQuestions())
-  const [getTriviaRound, setTriviaRound] = useState(pullTriviaRound())
+  const [multipleRound, setMultipleRound] = useState(createMultipleRounds())
+  const [getTriviaRound, setTriviaRound] = useState(multipleRound[0])
+  // const [getTriviaRound, setTriviaRound] = useState(pullTriviaRound())
   const [currentQuestion, setCurrentQuestion] = useState(getTriviaRound[0])
   const [index, setIndex] = useState(1)
+  const [roundCounter, setRoundCounter] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const [finalScore, setFinalScore] = useState(0)
   const [isCorrect, setCorrect] = useState(false)
@@ -21,41 +23,13 @@ export default function TriviaRound() {
   const [showFinalScore, setShowFinalScore] = useState(false)
   const [answerKey, setAnswerKey] = useState('')
 
-  function sliceArray() {
-    if (questionArray.length >= 10) {
-      let slicedArray = 
-        questionArray.filter((question) => {
-        getTriviaRound.map((roundQuestion) => {
-          return question.title !== roundQuestion.title
-        })
-      })
-    setQuestionArray(slicedArray)
-    } else {
-      setQuestionArray(randomizeQuestions())
-    }
-  }
-
-// var newArray = homes.filter(function (el) {
-//   return el.price <= 1000 &&
-//          el.sqft >= 500 &&
-//          el.num_of_beds >=2 &&
-//          el.num_of_baths >= 2.5;
-// });
-
-// let slicedArray = getTriviaRound.map((roundQuestion) => {
-//         let testTitle = roundQuestion.title
-//         return questionArray.filter((question) => {
-//           if (question.title !== testTitle) {
-//             return question
-//         }
-//         })
-//     })
-
-  // array.filter(item => { if (item.id ==id) return item.name} )
-
     function resetQuiz() {
-      setTriviaRound(pullTriviaRound())
-      setQuestionArray(sliceArray())
+      if (roundCounter <= multipleRound.length) {
+        setRoundCounter(roundCounter + 1)
+      } else {
+        setRoundCounter(0)
+      }
+      setTriviaRound(multipleRound[roundCounter])
       setCurrentQuestion(getTriviaRound[0])
       setIndex(0)
       setIsFinished(false)

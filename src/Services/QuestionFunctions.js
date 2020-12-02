@@ -22,7 +22,6 @@ export const createUserGeneratedQuestionArray = () => {
   })
   return userGeneratedQuestionArray;
 }
-
 // make a function to randomize the questions in the array from createQuizArray
 
 export const randomizeQuestions = () => {
@@ -121,22 +120,6 @@ export const combineQuestionArrays = () => {
   return randomizedCombinedArray
 }
 
- function createMultipleRounds() {
-    createRoundArray = combineQuestionArrays() 
-    multipleRoundArray = []
-    let counter = 0 
-    while (createRoundArray.length > 10) {
-        while (counter < 10) {
-          let roundArray = []
-          roundArray.push(createRoundArray[counter])
-          createRoundArray.shift()
-          counter += 1
-        }
-        multipleRoundArray.push(roundArray)
-    }
-    return multipleRoundArray
-  }
-
 // (NOT IN USE) make function to select one question from the question array to display
 //and remove it from the question array (NOT IN USE)
 
@@ -160,8 +143,8 @@ export const pullTwentyQuestions = () => {
   return twentyQuestionsArray
 }
 
-// export const pullMultipleRounds = () => {
-//   let allRoundsArray = []
-//   let singleRoundArray = []
-//   let pullArray = randomizeQuestions
-// }
+export const pullMultipleRounds = () => {
+  let allRoundsArray = []
+  let singleRoundArray = []
+  let pullArray = randomizeQuestions
+}
