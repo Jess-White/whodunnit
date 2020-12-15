@@ -11,7 +11,6 @@ export default function TriviaRound() {
   const [scoreCorrect, setScoreCorrect] = useState(0)
   const [scoreIncorrect, setScoreIncorrect] = useState(0)
   const [questionArray, setQuestionArray] = useState(randomizeQuestions())
-  // const [questionCount, setQuestionCount] = useState(questionArray.length)
   const [getTriviaRound, setTriviaRound] = useState(pullTriviaRound())
   const [currentQuestion, setCurrentQuestion] = useState(getTriviaRound[0])
   const [index, setIndex] = useState(1)
@@ -25,12 +24,17 @@ export default function TriviaRound() {
   function sliceArray() {
     setQuestionArray(questionArray)
     if (questionArray.length >= 10) {
-      let slicedArray = 
-        questionArray.filter((question) => {
+      let slicedArray = []
+      let filteredQuestions = questionArray.filter((question) => {
         getTriviaRound.map((roundQuestion) => {
           return question.title !== roundQuestion.title
         })
       })
+      let count = 0
+      while (count < 10) {
+        slicedArray.push(filteredQuestions[count])
+        count += 1
+      }
       setQuestionArray(slicedArray)
     } else {
       setQuestionArray(randomizeQuestions())
