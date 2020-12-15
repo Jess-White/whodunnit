@@ -11,6 +11,7 @@ export default function TriviaRound() {
   const [scoreCorrect, setScoreCorrect] = useState(0)
   const [scoreIncorrect, setScoreIncorrect] = useState(0)
   const [questionArray, setQuestionArray] = useState(randomizeQuestions())
+  const [questionCount, setQuestionCount] = useState(questionArray.length)
   const [getTriviaRound, setTriviaRound] = useState(pullTriviaRound())
   const [currentQuestion, setCurrentQuestion] = useState(getTriviaRound[0])
   const [index, setIndex] = useState(1)
@@ -22,18 +23,36 @@ export default function TriviaRound() {
   const [answerKey, setAnswerKey] = useState('')
 
   function sliceArray() {
-    if (questionArray.length >= 10) {
+    if (questionCount >= 10) {
       let slicedArray = 
         questionArray.filter((question) => {
         getTriviaRound.map((roundQuestion) => {
           return question.title !== roundQuestion.title
         })
       })
-    setQuestionArray(slicedArray)
+      setQuestionArray(slicedArray)
     } else {
       setQuestionArray(randomizeQuestions())
     }
   }
+
+  //  export const createMultipleRounds = () => {
+  //   let createRoundArray = combineQuestionArrays() 
+  //   let multipleRoundArray = []
+  //   let counter = 0 
+  //   while (createRoundArray.length >= 10) {
+  //     let roundArray = []
+  //       while (counter < 10) {
+  //         roundArray.push(createRoundArray[counter])
+  //         createRoundArray.shift()
+  //         counter += 1
+  //       }
+  //       multipleRoundArray.push(roundArray)
+  //   }
+  //   return multipleRoundArray
+  // }
+
+
 
 // var newArray = homes.filter(function (el) {
 //   return el.price <= 1000 &&
